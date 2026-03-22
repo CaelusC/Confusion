@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  source_note: one
+  target_note: one
+
+two:
+  source_note: two
+  target_note: two

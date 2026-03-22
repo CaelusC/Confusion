@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  blocking_card: one
+  blocked_card: one
+
+two:
+  blocking_card: two
+  blocked_card: two

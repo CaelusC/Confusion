@@ -1,0 +1,5 @@
+<%= form_with model: @project do |form| %>
+    <%= form.text_field :name, placeholder: "Project name" %>
+    <%= form.text_area :description, placeholder: "Description" %>
+    <%= form.submit %>
+<% end %>
