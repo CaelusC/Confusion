@@ -14,6 +14,8 @@ class CardsController < ApplicationController
 
     def new
         @card = @project.cards.build
+        @sprints = @project.sprints
+        @tags = @project.tags
     end
 
     def create
@@ -26,11 +28,13 @@ class CardsController < ApplicationController
     end
 
     def edit
+      @sprints = @card.project.sprints
+      @tags = @card.project.tags
     end
 
     def update
         if @card.update(card_params)
-            redirect_to project_card_path(@card.project)
+            redirect_to project_cards_path(@card.project)
         else
             render :edit, status: :unprocessable_entity
         end
@@ -38,7 +42,7 @@ class CardsController < ApplicationController
 
     def destroy
         @card.destroy
-        redirect_to project_card_path(@card.project)
+        redirect_to project_cards_path(@card.project)
     end
 
     def set_project
@@ -52,6 +56,6 @@ class CardsController < ApplicationController
     end
 
     def card_params
-        params.require(:card).permit(:title, :description, :color, :priority, :card_type, :status, :sprint_id)
+        params.require(:card).permit(:title, :description, :color, :priority, :card_type, :status, :sprint_id, tag_ids: [])
     end
 end

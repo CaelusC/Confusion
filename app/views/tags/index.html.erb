@@ -1,0 +1,9 @@
+<h1>Tags</h1>
+<%= link_to "New Tag", new_project_tag_path(@project) %>
+<% @tags.each do |tag| %>
+    <div>
+        <span style="background: <%= tag.color %>; padding: 2px 8px; border-radius: 3px;"><%= tag.name %></span>
+        <%= link_to "Edit", edit_tag_path(tag) %>
+        <%= button_to "Delete", tag_path(tag), method: :delete %>
+    </div>
+<% end %>

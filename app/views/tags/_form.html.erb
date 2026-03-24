@@ -1,0 +1,10 @@
+<%= form_with model: [@project || @tag_project, @tag] do |form| %>
+    <% if @tag.errors.any? %>
+        <% @tag.errors.full_messages.each do |message| %>
+            <p><%= message %></p>
+        <% end %>
+    <% end %>
+    <%= form.text_field :name, placeholder: "Tag Name" %>
+    <%= form.text_field :color %>
+    <%= form.submit %>
+<% end %> 
