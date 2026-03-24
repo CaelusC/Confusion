@@ -1,0 +1,19 @@
+<h1><%= @project.name %></h1>
+<%= link_to "New Card", new_project_card_path(@project) %>
+
+<h2> Unassigned Cards </h2>
+<% @unassigned_cards.each do |card| %>
+    <%= render "card", card: card %>
+<% end %>
+
+<h2> Bugs </h2>
+<% @bugs.each do |card| %>
+    <%= render "card", card: card %>
+<% end %>
+
+<% @sprint.each do |sprint| %>
+    <h2> <%= sprint.name %> </h2>
+    <% sprint.cards.each do |card| %>
+        <%= render "card", card: card %>
+    <% end %>
+<% end %>

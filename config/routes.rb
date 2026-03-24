@@ -13,5 +13,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "projects#index"
-  resources :projects
+
+  resources :projects do
+    resources :sprints, shallow: true
+    resources :cards, shallow: true
+    resources :folders, shallow: true do
+      resources :notes, shallow: true
+    end
+    resources :tags, shallow: true
+  end
 end

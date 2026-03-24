@@ -1,0 +1,7 @@
+<div>
+    <strong><%= card.title %></strong>
+    <span>[<%= card.priority %>]</span>
+    <span><%= card.status %></span>
+    <%= link_to "Edit", edit_card_path(card) %> |
+    <%= link_to "Delete", card_path(card), method: :delete %>
+</div>
