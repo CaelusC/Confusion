@@ -19,7 +19,7 @@ class CardsController < ApplicationController
     def create
         @card = @project.cards.build(card_params)
         if @card.save
-            redirect_to project_card_path(@project)
+            redirect_to project_cards_path(@project)
         else
             render :new, status: :unprocessable_entity
         end

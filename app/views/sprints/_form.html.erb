@@ -1,0 +1,7 @@
+<%= form_with model: [@project || @sprint.project, @sprint] do |form| %>
+    <%= form.text_field :name, placeholder: "Sprint Name" %>
+    <%= form.text_field :color %>
+    <%= form.date_field :start_date %>
+    <%= form.date_field :end_date %>
+    <%= form.submit %>
+<% end %>

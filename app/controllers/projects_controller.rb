@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
         @projects = Current.user.projects
     end
     def show
+        redirect_to project_cards_path(@project)
     end
     def new
         @project = Project.new
