@@ -1,20 +1,32 @@
 <h1><%= @project.name %></h1>
-<%= link_to "New Card", new_project_card_path(@project) %>
-<%= link_to "New Sprint", new_project_sprint_path(@project) %>
 
-<h2> Unassigned Cards </h2>
-<% @unassigned_cards.each do |card| %>
-    <%= render "card", card: card %>
-<% end %>
+<div class="board-actions">
+    <%= link_to "New Card", new_project_card_path(@project) %>
+    <%= link_to "New Sprint", new_project_sprint_path(@project) %>
+    <%= link_to "Manage Tags", project_tags_path(@project) %>
+</div>
 
-<h2> Bugs </h2>
-<% @bugs.each do |card| %>
-    <%= render "card", card: card %>
-<% end %>
+<div class="board">
+    <div class="board-section">
+        <h2> Unassigned Cards </h2>
+        <% @unassigned_cards.each do |card| %>
+            <%= render "card", card: card %>
+        <% end %>
+    </div>
 
-<% @sprints.each do |sprint| %>
-    <h2> <%= sprint.name %> </h2>
-    <% sprint.cards.each do |card| %>
-        <%= render "card", card: card %>
+    <div class="board-section">
+        <h2> Bugs </h2>
+        <% @bugs.each do |card| %>
+            <%= render "card", card: card %>
+        <% end %>
+    </div>
+
+    <% @sprints.each do |sprint| %>
+    <div class="board-section">
+        <h2> <%= sprint.name %> </h2>
+        <% sprint.cards.each do |card| %>
+            <%= render "card", card: card %>
+        <% end %>
+    </div>
     <% end %>
-<% end %>
+</div>

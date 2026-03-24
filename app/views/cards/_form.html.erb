@@ -11,6 +11,19 @@
     <%= form.select :priority, ["low", "medium", "high", "critical"], include_blank: "Select Priority" %>
     <%= form.select :card_type, [["Card", "card"], ["Bug", "bug"]], include_blank: "Select Type" %>
     <%= form.select :status, ["todo", "in_progress", "done"], include_blank: "Select Status" %>
+    <%= form.select :sprint_id, @sprints.map { |sprint| [sprint.name, sprint.id] }, include_blank: "Unassigned" %>
+
+    <% if @tags.any? %>
+        <div>
+            <h3>Tags</h3>
+            <% @tags.each do |tag| %>
+                <label>
+                    <%= check_box_tag "card[tag_ids][]", tag.id, @card.tag_ids.include?(tag.id) %>
+                    <%= tag.name %>
+                </label>
+            <% end %>
+        </div>
+    <% end %>
 
     <%= form.submit %>
 <% end %>

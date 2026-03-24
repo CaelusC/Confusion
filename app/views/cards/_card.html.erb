@@ -1,7 +1,12 @@
-<div>
-    <strong><%= card.title %></strong>
-    <span>[<%= card.priority %>]</span>
-    <span><%= card.status %></span>
+<div class="card">
+    <div class="card-title"><%= card.title %></div>
+    <span class="badge">[<%= card.priority %>]</span>
+    <span class="badge"><%= card.status %></span>
+    <% card.tags.each do |tag| %>
+    <span class="tag" style="background: <%= tag.color %>; padding: 2px 6px; border-radius: 3px; font-size: 0.8rem;"><%= tag.name %></span>
+  <% end %>
+  <div class="actions">
     <%= link_to "Edit", edit_card_path(card) %> |
-    <%= link_to "Delete", card_path(card), method: :delete %>
+    <%= button_to "Delete", card_path(card), method: :delete %>
+  </div>
 </div>
